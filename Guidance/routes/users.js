@@ -26,10 +26,23 @@ router.get('/', function(req, res, next) {
   silence.save(function (err, fluffy) {
     if (err) return console.error(err);
     fluffy.speak();
-    res.send('respond with a resource');
+    res.render('index', { title: 'Guidance HARDHACK', status: ' Guiding You' });
 
   });
 
+
+});
+
+
+/* GET users listing. */
+router.get('/reset', function(req, res, next) {
+
+
+  // console.log(silence.speak());
+  trigger.remove({ name: 'TEST' }, function (err) {
+  if (err) return handleError(err);
+  res.render('index', { title: 'Guidance HARDHACK', status: ' Waiting for Guidance' });
+  });
 
 });
 
