@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    div
+      form(action='/users',method='get')
+
+        div(data-role='fieldcontain')
+          input(type='submit',value='Sign Up',data-transition='fade', data-theme='c')
+    a(href="/")!= "Back to Employee List"
